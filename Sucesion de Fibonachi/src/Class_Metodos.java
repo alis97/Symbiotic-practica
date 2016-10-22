@@ -9,9 +9,19 @@
  * @author Adrian Mendoza Araya
  */
 public class Class_Metodos {
-    public int posicionfibonachi()
+    public int posicionfibonachi(int numero)
     {
-        return posicionfibonachi();
+        if (numero == 1 || numero == 2)
+        {
+            return 1;
+        }
+        
+        else
+        {
+            return posicionfibonachi(numero - 2) + posicionfibonachi(numero -1);
+        }
+     
+       
     }
     
 }
