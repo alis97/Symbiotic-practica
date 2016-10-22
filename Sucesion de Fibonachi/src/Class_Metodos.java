@@ -17,10 +17,9 @@ public class Class_Metodos {
         {
             return 1;
         }
-        
         else
         {
-            return posicionfibonachi(numero - 2) + posicionfibonachi(numero -1);
+            return posicionfibonachi(numero - 2) + posicionfibonachi(numero - 1);
         }
      
     }
