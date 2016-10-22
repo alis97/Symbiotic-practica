@@ -28,10 +28,13 @@ public class Interfaz extends javax.swing.JFrame {
 
         txtValorvector = new javax.swing.JTextField();
         txtNumeros = new javax.swing.JTextField();
-        btnAceptar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         lblVector = new javax.swing.JLabel();
         lblNumeros = new javax.swing.JLabel();
         lblMensaje = new javax.swing.JLabel();
+        btnAceptar = new javax.swing.JButton();
+        btnMostrar = new javax.swing.JButton();
+        lblIngresoUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,10 +51,10 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        btnAceptar.setText("Aceptar");
-        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAceptarActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
 
@@ -59,10 +62,20 @@ public class Interfaz extends javax.swing.JFrame {
 
         lblNumeros.setText("Ingrese los valores:");
 
+        btnAceptar.setText("Aceptar");
+
+        btnMostrar.setText("Mostrar resultado");
+
+        lblIngresoUsuario.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnMostrar)
+                .addGap(63, 63, 63))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -75,25 +88,33 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(txtNumeros)
                             .addComponent(txtValorvector, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAceptar))
-                    .addComponent(lblMensaje))
-                .addContainerGap(42, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAgregar)
+                            .addComponent(btnAceptar)))
+                    .addComponent(lblMensaje)
+                    .addComponent(lblIngresoUsuario))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtValorvector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblVector))
+                    .addComponent(lblVector)
+                    .addComponent(btnAceptar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNumeros)
-                    .addComponent(btnAceptar))
-                .addGap(73, 73, 73)
+                    .addComponent(btnAgregar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblIngresoUsuario)
+                .addGap(2, 2, 2)
+                .addComponent(btnMostrar)
+                .addGap(13, 13, 13)
                 .addComponent(lblMensaje)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         pack();
@@ -123,7 +144,7 @@ public class Interfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtNumerosKeyTyped
 
-    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
         System.out.println(object.llenarvector(this.txtNumeros));
        //this.lblMensaje.setText(object.Ordenamiento(Integer.parseInt(this.txtValorvector.getText())));
@@ -131,7 +152,7 @@ public class Interfaz extends javax.swing.JFrame {
         //Para que limpie de una ves. 
         this.txtValorvector.setText(" ");
         this.txtNumeros.setText(" ");
-    }//GEN-LAST:event_btnAceptarActionPerformed
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,6 +191,9 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnMostrar;
+    private javax.swing.JLabel lblIngresoUsuario;
     private javax.swing.JLabel lblMensaje;
     private javax.swing.JLabel lblNumeros;
     private javax.swing.JLabel lblVector;
