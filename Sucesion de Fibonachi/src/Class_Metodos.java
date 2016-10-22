@@ -9,5 +9,9 @@
  * @author Adrian Mendoza Araya
  */
 public class Class_Metodos {
+    public int posicionfibonachi()
+    {
+        return posicionfibonachi();
+    }
     
 }
