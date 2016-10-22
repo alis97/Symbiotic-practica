@@ -1,3 +1,6 @@
+
+import java.util.Arrays;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -63,37 +66,47 @@ public class Interfaz extends javax.swing.JFrame {
         lblNumeros.setText("Ingrese los valores:");
 
         btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
 
         btnMostrar.setText("Mostrar resultado");
-
-        lblIngresoUsuario.setText("jLabel1");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnMostrar)
-                .addGap(63, 63, 63))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblVector)
-                            .addComponent(lblNumeros))
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtNumeros)
-                            .addComponent(txtValorvector, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAgregar)
-                            .addComponent(btnAceptar)))
-                    .addComponent(lblMensaje)
-                    .addComponent(lblIngresoUsuario))
-                .addContainerGap(41, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblVector)
+                                    .addComponent(lblNumeros))
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtNumeros)
+                                    .addComponent(txtValorvector, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnAgregar)
+                                    .addComponent(btnAceptar)))
+                            .addComponent(lblMensaje))
+                        .addContainerGap(41, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblIngresoUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnMostrar)
+                        .addGap(75, 75, 75))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,10 +122,10 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(lblNumeros)
                     .addComponent(btnAgregar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblIngresoUsuario)
-                .addGap(2, 2, 2)
-                .addComponent(btnMostrar)
-                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblIngresoUsuario)
+                    .addComponent(btnMostrar))
+                .addGap(29, 29, 29)
                 .addComponent(lblMensaje)
                 .addContainerGap(90, Short.MAX_VALUE))
         );
@@ -145,14 +158,25 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNumerosKeyTyped
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-
-        System.out.println(object.llenarvector(this.txtNumeros));
-       //this.lblMensaje.setText(object.Ordenamiento(Integer.parseInt(this.txtValorvector.getText())));
-        
-        //Para que limpie de una ves. 
-        this.txtValorvector.setText(" ");
-        this.txtNumeros.setText(" ");
+        String numingresado = this.txtNumeros.getText();
+        int num = Integer.parseInt(numingresado);
+        this.lblIngresoUsuario.setText(object.llenarvector(num));
+        object.posicionllenar+=1;////Para que limpie de una ves. 
+//        this.txtValorvector.setText(" ");
+//        this.txtNumeros.setText(" ");
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        String tamingresado = this.txtValorvector.getText();
+        int tam = Integer.parseInt(tamingresado);
+        object.generarTamaño(tam);
+        
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        object.Ordenamiento();
+        this.lblMensaje.setText(Arrays.toString(object.vectorfinal));
+    }//GEN-LAST:event_btnMostrarActionPerformed
 
     /**
      * @param args the command line arguments
