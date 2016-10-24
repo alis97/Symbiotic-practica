@@ -19,17 +19,10 @@ public class Class_Ordenar {
     String printresulvector;
     public String llenarvector(int numero)
     {
-//        if(posicionllenar==numvector.length)
-//        {
-//            
-//        }
-//        else
-//        {
             int tamaño = numvector.length;
             numvector[posicionllenar]= numero;
             vectorfinal=numvector;
             
-//        }
         return printuservector = Arrays.toString(numvector);
        
     }

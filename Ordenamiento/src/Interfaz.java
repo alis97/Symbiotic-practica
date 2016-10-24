@@ -158,10 +158,21 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNumerosKeyTyped
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        String numingresado = this.txtNumeros.getText();
-        int num = Integer.parseInt(numingresado);
-        this.lblIngresoUsuario.setText(object.llenarvector(num));
-        object.posicionllenar+=1;////Para que limpie de una ves. 
+        
+        if(object.posicionllenar==object.numvector.length)
+        {
+            
+           this.lblMensaje.setText("sobrepaso el tamaño");
+        }
+        else
+        {
+            String numingresado = this.txtNumeros.getText();
+            int num = Integer.parseInt(numingresado);
+            this.lblIngresoUsuario.setText(object.llenarvector(num));
+            object.posicionllenar+=1;
+        }
+        
+        ////Para que limpie de una ves. 
 //        this.txtValorvector.setText(" ");
 //        this.txtNumeros.setText(" ");
     }//GEN-LAST:event_btnAgregarActionPerformed
@@ -174,8 +185,11 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        object.Ordenamiento();
-        this.lblMensaje.setText(Arrays.toString(object.vectorfinal));
+        
+        
+            object.Ordenamiento();
+            this.lblMensaje.setText(Arrays.toString(object.vectorfinal));
+        
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     /**
